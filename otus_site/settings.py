@@ -21,11 +21,13 @@ class Base(Configuration):
         'django.contrib.staticfiles',
         'rest_framework',
         'django_extensions',
+        'debug_toolbar',
         'users.apps.UsersConfig',
         'catalog.apps.CatalogConfig',
     ]
 
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -94,3 +96,4 @@ class Base(Configuration):
 
 class Dev(Base):
     DEBUG = True
+    INTERNAL_IPS = '127.0.0.1'
