@@ -11,4 +11,6 @@ urlpatterns = [
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
-        path(r'__debug__/', include(debug_toolbar.urls)),] + urlpatterns
+        path(r'__debug__/', include(debug_toolbar.urls)),
+        path(r'api-login/', include('rest_framework.urls'),)
+                  ] + urlpatterns
